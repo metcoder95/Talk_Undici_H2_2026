@@ -17,6 +17,7 @@ layout: intro
 
 ---
 transition: slide-up
+layout: fact
 ---
 
 # A Primer
@@ -248,13 +249,29 @@ const socks5ProxyWithOptions = new Socks5ProxyAgent('socks5://localhost:1080', {
 ```
 ---
 transition: slide-left
-layout: section
+layout: fact
+zoom: 0.8
 ---
 
-### Do you know that `undici` also supports powers `fetch` in Node.js?
+### Do you know that `undici` also powers `fetch` in Node.js?
 
-<v-click>
-<div class="text-align-left">
-So yes, you can have all of these mounted on top of <b>fetch</b> as well.
-</div>
-</v-click>
+Using the `interceptor.cache` you can have a fully compliant RFC9111 cache implementation for your `fetch` requests.
+```js {1|3-9|11|}
+const { Agent, cacheStores, interceptors, setGlobalDispatcher } = require('undici')
+
+const client = new Agent().compose(interceptors.cache({
+  store: new cacheStores.MemoryCacheStore({
+    maxSize: 100 * 1024 * 1024, // 100MB
+    maxCount: 1000,
+    maxEntrySize: 5 * 1024 * 1024 // 5MB
+  })
+}))
+
+setGlobalDispatcher(client)
+
+// First request goes to the network and is cached when cache headers allow it.
+const first = await fetch('https://example.com/data')
+
+// Second request can be served from cache according to RFC9111 rules.
+const second = await fetch('https://example.com/data')
+```

@@ -91,13 +91,15 @@ layout: fact
 
 ---
 transition: slide-up
-layout: image-left
-image: https://miro.medium.com/v2/resize:fit:706/format:webp/1*1KnIRWFYwLFUoucjI0z9bw.png
-backgroundSize: contain
+layout: two-cols-header
+zoom: 1.2
 ---
 
 ### !Pipelining === ~Throughput
+::left::
+<img src="https://miro.medium.com/v2/resize:fit:706/format:webp/1*1KnIRWFYwLFUoucjI0z9bw.png" class="mx-auto" />
 
+::right::
 <v-click>
 <div class="text-md">
 Pipelining is a feature of HTTP/1.1 that allows multiple HTTP requests to be sent over a single TCP connection without waiting for the corresponding responses

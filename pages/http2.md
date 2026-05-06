@@ -71,12 +71,12 @@ After almost ~6 months of work, it got materialized.
 ---
 transition: slide-up
 layout: fact
-zoom: 0.67
+zoom: 0.55
 ---
 
 # Keep everything the same, but add HTTP/2 support
 
-```js {all|2}
+```js {2|all}
 const client = new Client('https://nghttp2.org', {
   allowH2: true, // default is false
 });
@@ -146,7 +146,7 @@ layout: fact
 ---
 
 # WebSockets also works over HTTP/2
-```js
+```js {all|3|all}
 import { Agent } from 'undici'
 
 const agent = new Agent({ allowH2: true })
