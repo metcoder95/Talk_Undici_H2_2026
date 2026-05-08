@@ -181,6 +181,9 @@ This <a href="https://github.com/nodejs/node/commit/cf91d181fbd00899790852c510bc
 
 ---
 transition: slide-up
+layout: image-right
+image: https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZm1hN3NxN3I3dmJ4cmsyOGQyY3Z0cjFmaW15NHBsMDVnb251YmRlayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mcsPU3SkKrYDdW3aAU/giphy.gif
+background: contain
 ---
 
 ### Let's crush some numbers
